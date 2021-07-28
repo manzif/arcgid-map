@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Retrieve MapView Extent</title>
+
+<link rel="stylesheet" href="https://js.arcgis.com/4.3/esri/css/main.css">
+<script src="https://js.arcgis.com/4.3/"></script>
+
+<script>
+	var myMap, myMapView;
+	require([
+	"esri/Map",
+	"esri/views/MapView",
+	"dojo/domReady!"],
+	function(
+	Map,
+	MapView
+	) {
+	
+	myMap = new Map({
+		basemap: "national-geographic"
+	});
+	
+	myMapView = new MapView({
+		container: "map1",
+		map: myMap,
+		// center: [-122.4479, 37.7531],
+		extent: {    		
+            xmax: 3596227.039882401,
+            xmin: 3126597.938098504,
+            ymax: -118846.46690072706,
+            ymin: -339596.6045882096,
+            spatialReference: 102100 
+            }
+	});
+	
+	// The current mapView extent are: xmax: 3596227.039882401xmin: 3126597.938098504 ymax: -118846.46690072706 ymin: -339596.6045882096
+	myMapView.on("click", function() {
+    
+    alert(" The current mapView extent are: xmax: "+ myMapView.extent.xmax + "xmin: " + myMapView.extent.xmin
+    +" ymax: " + myMapView.extent.ymax+" ymin: " + myMapView.extent.ymin);
+       
+	});
+
+	});
+</script>
+
+<style>
+	html, body, #map1 {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	}
+</style>
+
+</head>
+	<body>
+		<div id="map1"></div>
+	</body>
+</html>
