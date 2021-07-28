@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Create a 2D Map Web App</title>
+
+<link rel="stylesheet" href="https://js.arcgis.com/4.3/esri/css/main.css">
+<script src="https://js.arcgis.com/4.3/"></script>
+
+<script>
+	var myMap, myMapView;
+	require([
+	"esri/Map",
+	"esri/Graphic",
+    "esri/geometry/Point",
+    "esri/symbols/SimpleMarkerSymbol",
+	"esri/views/MapView",
+	"dojo/domReady!"],
+	function(
+	Map,
+	Graphic,
+    Point,
+    SimpleMarkerSymbol,
+	MapView
+	) {
+	
+	myMap = new Map({
+		basemap: "satellite"
+	});
+	
+	myMapView = new MapView({
+		container: "map1",
+		map: myMap,
+		center: [-122.4479, 37.7531],
+		zoom: 12
+	});
+	//4 steps to add a point on map
+	//1- 
+	var myPoint = new Point({
+		x: -122.4479,
+		y: 37.7531,
+	});
+ 	//2-
+	var myMarkerSymbol = new SimpleMarkerSymbol({
+		size: 18,
+		color: [184, 4, 84],
+		outline: {
+		color: [219, 219, 219],
+		width: 3
+		}
+	});
+	//3-
+	var myGraphic = new Graphic({
+		geometry: myPoint,
+		symbol: myMarkerSymbol
+	});
+	//4-
+	myMapView.graphics.add(myGraphic);
+
+	});
+</script>
+
+<style>
+	html, body, #map1 {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	}
+</style>
+
+</head>
+	<body>
+		<div id="map1"></div>
+	</body>
+</html>

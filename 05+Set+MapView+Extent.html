@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Set MapView Extent</title>
+
+<link rel="stylesheet" href="https://js.arcgis.com/4.3/esri/css/main.css">
+<script src="https://js.arcgis.com/4.3/"></script>
+
+<script>
+	var myMap, myMapView;
+	require([
+	"esri/Map",
+	"esri/views/MapView",
+	"dojo/domReady!"],
+	function(
+	Map,
+	MapView
+	) {
+	
+	myMap = new Map({
+		basemap: "national-geographic"
+	});
+	
+	myMapView = new MapView({
+		container: "map1",
+		map: myMap,
+		center: [-122.4479, 37.7531],
+		extent: {    		
+            xmax: -13619894,
+            xmin: -13624389,
+            ymax: 4556105,
+            ymin: 4553024,
+            spatialReference: 102100 
+            }
+	});
+
+	});
+</script>
+
+<style>
+	html, body, #map1 {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	}
+</style>
+
+</head>
+	<body>
+		<div id="map1"></div>
+	</body>
+</html>
