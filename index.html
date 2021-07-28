@@ -1,0 +1,40 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>ArcGIS Developer Guide: Display a map (2D)</title>
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.19/esri/themes/dark/main.css">
+  <script src="https://js.arcgis.com/4.19/"></script>
+
+  <script src="js/main.js"></script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+  <div id="infoDiv" class="esri-widget">
+    <h3>Covid-19 cases in the world</h3>
+    <h4>Filter by by the Country:</h4>
+    <select id="filter" class="esri-select">
+      <option value="1=1">All</option>
+      <option value="57126">57126</option>
+      <option value="Burundi">Burundi</option>
+    </select>
+    <br />
+    <div id="legendDiv"></div>
+  </div>
+  <div id="tableDiv" class="esri-widget"></div>
+</body>
+
+</html>
